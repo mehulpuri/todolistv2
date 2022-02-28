@@ -1,0 +1,38 @@
+<%- include("header") -%>
+
+  <div class="box" id="heading">
+    <h1> <%= listTitle %> </h1>
+  </div>
+
+  <div class="box">
+    <form  action="/:customListName" method="post">
+      <input type="text" name="newListname" placeholder="List Name" autocomplete="off">
+      <button type="submit" name="button">+</button>
+    </form>
+  </div>
+
+  <div class="box">
+    <% newListItems.forEach(function(newListItem){ %>
+
+      <form action="/delete" method="post">
+        <div class="item">
+          <input type="checkbox" value="<%= newListItem._id %>" name="checkbox" onchange="this.form.submit()" >
+          <p><%=  newListItem.name %></p>
+        </div>
+        <input type="hidden" name="listName" value="<%= listTitle %>"></input>
+      </form>
+    <% }) %>
+
+      <form class="item" action="/" method="post">
+        <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
+        <button type="submit" name="list" value= "<%= listTitle %>">+</button>
+      </form>
+  </div>
+
+  <!-- <div class="mailing">
+    <h4>Sign up to our mailing list</h4>
+    <a class="closebtn"  onclick='this.parentNode.parentNode.removeChild(this.parentNode)'><button id='close'>X</button></a>
+    <iframe class="responsive-iframe" src="https://memu-newsletter-app.herokuapp.com/" name="myFrame"></iframe>
+
+  </div> -->
+<%- include("footer") -%>
