@@ -53,7 +53,7 @@ app.get("/", function(req, res) {
       res.redirect("/");
     }
 
-    res.render("list", {listTitle: "Welcome to your To-Do-List", newListItems: foundItems});
+    res.render("list", {listTitle: "To Do List", newListItems: foundItems});
   });
 });
 
@@ -68,7 +68,7 @@ app.post("/", function(req, res){
     name: itemName
   });
 
-  if(listName === "Welcome to your To-Do-List"){
+  if(listName === "To Do List"){
     item.save();
     res.redirect("/");
   }else{
@@ -84,7 +84,7 @@ app.post("/delete",function(req,res){
     const checkedItemId = req.body.checkbox;
     const listName = req.body.listName;
 
-    if(listName === "Welcome to your To-Do-List"){
+    if(listName === "To Do List"){
       Item.findByIdAndRemove(checkedItemId,function(err){
         if(err){
           console.log(err);
