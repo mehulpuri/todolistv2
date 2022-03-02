@@ -25,7 +25,7 @@ to run the app
 
 
 ## What I Learnt
-* Intro to DB, both SQL and NOSQL
+* Intro to DB
 * Basics of mongoDB
 * Implementing mongoDB to keep our data safe when server restarts
 
